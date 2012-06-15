@@ -24,13 +24,15 @@ When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-When /^(?:|I )press "([^"]*)"(?: within "([^"]*)")?$/ do |button, selector|
+When /^(?:|I )press "([^"]*)"(?: within "([^"]*)")?$/ do |link, selector|
   with_scope(selector) do
-    begin
-      click_button(button)
-    rescue Capybara::ElementNotFound
-      click_link(button)
-    end
+    click_link(link)
+  end
+end
+
+When /^(?:|I )press button "([^"]*)"(?: within "([^"]*)")?$/ do |button, selector|
+  with_scope(selector) do
+    click_button(button)
   end
 end
 
@@ -52,17 +54,6 @@ When /^(?:|I )fill in "([^"]*)" for "([^"]*)"(?: within "([^"]*)")?$/ do |value,
   end
 end
 
-# Use this to fill in an entire form with data from a table. Example:
-#
-#   When I fill in the following:
-#     | Account Number | 5002       |
-#     | Expiry date    | 2009-11-01 |
-#     | Note           | Nice guy   |
-#     | Wants Email?   |            |
-#
-# TODO: Add support for checkbox, select og option
-# based on naming conventions.
-#
 When /^(?:|I )fill in the following(?: within "([^"]*)")?:$/ do |selector, fields|
   with_scope(selector) do
     fields.rows_hash.each do |name, value|

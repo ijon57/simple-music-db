@@ -4,7 +4,7 @@ gem 'rails', '3.0.9'
 gem 'sqlite3'
 gem 'paperclip'
 gem 'authlogic'
-
+gem 'escape_utils'
 
 group :test do
   gem 'factory_girl'
@@ -13,4 +13,5 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'pickle'
+  gem 'launchy'
 end

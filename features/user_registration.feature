@@ -10,7 +10,7 @@ Feature: User registration
       | user_email                 | example@example.com |
       | user_password              | example             |
       | user_password_confirmation | example             |
-    And I press "Submit"
+    And I press button "Create User"
     Then I should see "You have registered successfully!"
     
   
