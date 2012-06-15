@@ -5,6 +5,14 @@
 # files.
 
 require 'cucumber/rails'
+require "authlogic/test_case"
+require 'factory_girl'
+require File.dirname(__FILE__) + '/../../spec/factories' # or wherever your factories are
+
+
+Before do
+  activate_authlogic
+end
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd
@@ -57,3 +65,19 @@ end
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
 
+
+def login_user
+  visit "/user_sessions/new"
+  fill_in 'user_session_email', :with => @current_user.email
+  fill_in 'user_session_password', :with => 'example'
+  click_button 'Login'
+end
+
+def logout_user
+  session = UserSession.find
+  session.destroy if session
+end
+
+def user_session
+  @session ||= UserSession.find
+end
