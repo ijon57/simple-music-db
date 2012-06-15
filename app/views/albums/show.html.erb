@@ -1,0 +1,9 @@
+<p>
+  <%= link_to "Albums", user_albums_path(current_user) %>
+  <%= link_to "Edit", edit_user_album_path(current_user, @album) %>
+</p>
+
+<p>
+  Title: <%= @album.title %>
+  Artist: <%= @album.artist %>
+</p>

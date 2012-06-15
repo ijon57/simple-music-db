@@ -4,6 +4,8 @@ module NavigationHelpers
     case page_name
     when /the home\s?page/
       '/'
+    when /the album's page/
+      user_album_path(find_model!('me'), find_model!('album'))
     when /^#{capture_model}(?:'s)? page$/
       path_to_pickle $1
     when /^#{capture_model}(?:'s)? #{capture_model}(?:'s)? page$/

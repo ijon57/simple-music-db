@@ -96,5 +96,6 @@ end
 
 # assert size of association
 Then /^#{capture_model} should have (\d+) (\w+)$/ do |name, size, association|
+  association = "#{association}s" unless association =~ /s\Z/
   model!(name).send(association).size.should == size.to_i
 end

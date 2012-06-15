@@ -4,4 +4,10 @@ FactoryGirl.define do
     password "example"
     password_confirmation { |u| u.password }
   end
+  
+  factory :album do
+    title 'album title'
+    artist 'album artist'
+    association :user
+  end
 end
