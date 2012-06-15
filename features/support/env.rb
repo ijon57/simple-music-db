@@ -81,3 +81,14 @@ end
 def user_session
   @session ||= UserSession.find
 end
+
+
+module MeHelper
+  def me
+    created_model('user: "me"')
+  end
+  def my
+    created_model('user: "me"')
+  end
+end
+World(MeHelper)
