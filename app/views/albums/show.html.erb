@@ -4,6 +4,11 @@
 </p>
 
 <p>
-  Title: <%= @album.title %>
-  Artist: <%= @album.artist %>
+  Title: <b><%= @album.title %></b>
+  <br/>
+  Artist: <b><%= @album.artist %></b>
+  <% if @album.cover? %>
+    <br/>
+    <%= image_tag @album.cover.url(:medium) %>
+  <% end %>
 </p>

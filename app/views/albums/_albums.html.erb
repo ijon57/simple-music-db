@@ -1,5 +1,11 @@
 <ul>
   <% albums.each do |album| %>
-    <li><%= album.title %> - <%= album.artist %></li>
+    <li>
+      <% if album.cover? %>
+        <%= link_to(image_tag(album.cover.url(:small)),album.cover.url(:large)) %> 
+      <% end %>
+      <%= link_to(album.title, user_album_path(album.user, album)) %> 
+      (<%= album.artist %>)
+    </li>
   <% end %>
 </ul>
