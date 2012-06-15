@@ -12,4 +12,9 @@ Feature: User authentication
       | user_session_password              | example              |
     And I press button "Login"
     Then I should see "Login successful"
-    
+  
+  Scenario: Logging out
+    Given I am logged in
+    And I am on the homepage
+    When I press "Logout"
+    Then I should be logged out

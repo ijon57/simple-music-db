@@ -1,7 +1,3 @@
-<h1>Albums</h1>
+<h1>All Albums</h1>
 
-<ul>
-  <% @albums.each do |album| %>
-    <li><%= album.title %> - <%= album.artist %></li>
-  <% end %>
-</ul>
+<%= render :partial => 'albums', :locals => {:albums => @albums} %>

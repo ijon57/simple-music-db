@@ -40,3 +40,7 @@ Then /^the user should be "([^"]*)"$/ do |login| #"
   user_session
   @session.user.login.should be == login
 end
+
+Then /^I should be logged out$/ do
+  step "there should not be a session"
+end

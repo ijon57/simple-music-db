@@ -1,0 +1,7 @@
+<h1>All Albums</h1>
+
+<% if @albums.any? %>
+  <%= render :partial => 'albums', :locals => {:albums => @albums} %>
+<% else %>
+  No albums found
+<% end %>

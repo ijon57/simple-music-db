@@ -14,4 +14,5 @@ group :test do
   gem 'database_cleaner'
   gem 'pickle'
   gem 'launchy'
+  gem 'log_buddy'
 end

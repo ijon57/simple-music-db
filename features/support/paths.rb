@@ -6,6 +6,8 @@ module NavigationHelpers
       '/'
     when /the album's page/
       user_album_path(find_model!('me'), find_model!('album'))
+    when /the album's edit page/
+      edit_user_album_path(find_model!('me'), find_model!('album'))
     when /^#{capture_model}(?:'s)? page$/
       path_to_pickle $1
     when /^#{capture_model}(?:'s)? #{capture_model}(?:'s)? page$/
