@@ -7,9 +7,9 @@ Feature: User registration
     Given I am on the homepage
     When I press "Sign up"
     And I fill in the following:
-      | email                 | example@example.com |
-      | password              | example             |
-      | password_confirmation | example             |
+      | user_email                 | example@example.com |
+      | user_password              | example             |
+      | user_password_confirmation | example             |
     And I press "Submit"
     Then I should see "You have registered successfully!"
     

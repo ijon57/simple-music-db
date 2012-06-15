@@ -11,3 +11,4 @@ Feature: User authentication
       | user_session_password              | example              |
     And I press "Login"
     Then I should be on the my account page
+    And I should see "Login successful"
