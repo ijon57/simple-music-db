@@ -29,7 +29,7 @@ class AlbumsController < ApplicationController
     
   def search
     query = params[:query]
-    @albums = Album.where('title LIKE ? OR artist LIKE ?', query, query)
+    @albums = current_user.albums.where('title LIKE ? OR artist LIKE ?', query, query)
   end
   
   private
